@@ -24,6 +24,12 @@
 
 A javascript login interface for the littlest of users
 
+Even small children can learn to follow a color pattern, and making a beaded dangle or bracelet, displaying the pattern in some way, or helping them memorize it can introduce kids to passwords and privacy on devices. I envision this inside a basic login function where the child's grownup can do a group login, and kids can then log into their profile on a group page when they need to. 
+
+
+![Screenshot](./assets/screencapture.png)
+![Beaded dangle](./assets/beads.png)
+
 ## Installation Guide
 
 npm install
