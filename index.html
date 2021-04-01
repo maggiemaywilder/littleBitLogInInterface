@@ -9,17 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/1e5b2a87bf.js" crossorigin="anonymous"></script>
-    <!-- <style>
-        .passwordBtns {
-            height: 75px;
-            width: 100%;
-            border-radius: 5px;
-            margin: 5px;
-            text-align: center;
-            font-size: 100em;
-        }
-    </style> -->
-    <title>Hello, world!</title>
+
+    <title>Littles Login</title>
   </head>
   <body>
     <h1 class="text-center mb-3">Hello, world!</h1>
@@ -30,14 +21,19 @@
             <!-- ideally this will have an option for definable icon buttons in future -->
                 <input type="text" class="form-control" id="littlesName" placeholder="Type your name"/>
 
+                <div class="row mb-2 justify-content-center" id="passwordEntered">
+
+                </div>
+
+
                 <div class="mx-auto pt-3" id="passwordBtns">
                     <div class="row mb-3 justify-content-center">
-                        <div class="rounded-lg bg-danger text-danger m-2" style="width: 20vw; height:20vw" id="Red"></div>
-                        <div class="rounded-lg bg-success text-success m-2" style="width: 20vw; height:20vw" id="Green"></div>
+                        <div class="rounded-lg bg-danger text-danger m-2" style="width: 20vw; height:20vw" id="r"></div>
+                        <div class="rounded-lg bg-success text-success m-2" style="width: 20vw; height:20vw" id="g"></div>
                     </div>
                     <div class="row mb-3 justify-content-center">
-                        <div class="rounded-lg bg-primary text-primary m-2" style="width: 20vw; height:20vw" id="Blue"></div>
-                        <div class="rounded-lg bg-warning text-warning m-2" style="width: 20vw; height:20vw" id="Yellow"></div>
+                        <div class="rounded-lg bg-primary text-primary m-2" style="width: 20vw; height:20vw" id="b"></div>
+                        <div class="rounded-lg bg-warning text-warning m-2" style="width: 20vw; height:20vw" id="y"></div>
                     </div>
                 </div>
 
@@ -58,19 +54,36 @@
   </div>
 
 
-  <script>
-      var littlesPassword = [];
+    <script>
 
-    //   function inputPassword() {
-        const btns = document.getElementById('passwordBtns');
-        btns.addEventListener('click', (e) => {
-            e.preventDefault();
-            // const input = e.target.value;
-            console.log(e.target.id);
-        })
-    //   }
+    var littlesPassword = [];
+    var password;
+    
+    const btns = document.getElementById("passwordBtns");
 
-  </script>
+    btns.addEventListener("click", function(e) {
+        e.preventDefault();
+        const input = e.target.id;
+        const pClass = e.target.className;
+        const newClass = pClass.split(" ", 3).join(" ");
+        littlesPassword.push(input);
+        // the div already in html
+        const showPassword = document.getElementById('passwordEntered');
+        const innerDiv = document.createElement('div');
+        innerDiv.innerHTML = `
+            <div class="${newClass} m-1" style="width: 5vw; height: 5vw"></div>
+            `;
+        showPassword.append(innerDiv);
+        password = littlesPassword.join("");
+        console.log(password)
+        return (password);
+    });
+       
+// Note: submit button and clear password button are not function as this is just a part to be plugged into future apps
+
+    </script>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
